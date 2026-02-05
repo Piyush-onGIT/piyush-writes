@@ -4,7 +4,7 @@ description: An in-depth details of how ExpressJS uses NodeJS environment to han
 date: 2026-02-05
 ---
 
-In this article, you will read about how ExpressJS handles concurrent requests with just one single thread. I will go deep into the engineering level to answer all your questions. I will be answering some common doubts that I also faced while understanding the architecture. Just get along with the blog and you will learn the in-depth details of ExpressJS or NodeJS, as ExpressJS framework uses NodeJS runtime environment.
+In this article, you will learn about how ExpressJS handles concurrent requests with just one single thread. I will go deep into the engineering level to answer all your questions. I will be answering some common doubts that I also faced while understanding the architecture. Just get along with the blog and you will learn the in-depth details of ExpressJS or NodeJS, as ExpressJS framework uses NodeJS runtime environment.
 
 Take a close look at this API (hope you don't get carried away as you scroll down)
 

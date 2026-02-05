@@ -6,13 +6,15 @@ import { ProfileCard } from "@/components/ProfileCard";
 export async function generateStaticParams() {
   const posts = await getAllPosts();
   return posts.map((post) => ({
-    slug: post.slug,
+    slug: encodeURIComponent(post.slug),
   }));
 }
 
+// export const dynamicParams = false;
+
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  console.log(slug)
+  console.log(slug);
   const post = await getPostBySlug(slug).catch(() => null);
   if (!post) {
     return notFound();
