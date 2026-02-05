@@ -187,7 +187,7 @@ Waiting List (Event Loop memory):
 - Resume handler(B) after dbCall
 ```
 
-Now, go according to the flow(as stated above), when DB finishes for A, handler(A) will come back in the stack and same goes for req 'B'. These functions get pushed and popped from the stack very fast as if they are running almost parallely.
+Now, go according to the [flow](#flow), when DB finishes for A, handler(A) will come back in the stack and same goes for req 'B'. These functions get pushed and popped from the stack very fast as if they are running almost parallely.
 
 One question might come into you mind:
 
