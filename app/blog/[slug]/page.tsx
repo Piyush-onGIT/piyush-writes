@@ -10,7 +10,7 @@ export async function generateStaticParams() {
   }));
 }
 
-// export const dynamicParams = false;
+export const dynamicParams = false;
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
