@@ -34,7 +34,7 @@ export function CommentSection({ slug }: { slug: string }) {
   const formRef = useRef<HTMLFormElement>(null)
 
   // ✅ Fetch comments
-   const fetchComments = async () => {
+	const fetchComments = async () => {
     try {
       const { data } = await api.get(`/api/comments/${slug}`)
       setComments(data)
