@@ -14,9 +14,9 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Side Notes — Minimal Blog",
+  title: "Piyush Writes",
   description:
-    "A sleek, file-backed blog that renders Markdown posts from the local content folder.",
+    "I read to learn and write to re-learn.",
 };
 
 export default function RootLayout({

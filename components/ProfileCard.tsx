@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { ReactNode } from "react";
-import { Github, Linkedin, Twitter, Mail, X, TwitterIcon } from "lucide-react";
-
+import { Github, Linkedin, Twitter, Mail, X, TwitterIcon } from "lucide-react";import me from "@/public/me.jpeg";
 type Props = {
   children?: ReactNode;
 };
@@ -25,7 +24,7 @@ export function ProfileCard({ children }: Props) {
             <div className="absolute inset-0 animate-pulse rounded-2xl bg-accent/20 blur-md transition-all duration-500 group-hover:bg-accent/40" />
             <div className="relative h-full w-full overflow-hidden rounded-2xl border-2 border-white/10 bg-black shadow-2xl transition-transform duration-500 group-hover:scale-105 group-hover:border-accent/50">
               <Image
-                src="/me.jpeg"
+                src={me}
                 alt="Profile picture"
                 fill
                 sizes="120px"
