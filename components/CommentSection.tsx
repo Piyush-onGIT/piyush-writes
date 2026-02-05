@@ -66,6 +66,15 @@ export function CommentSection({ slug }: { slug: string }) {
         postSlug: slug,
       })
 
+			const newComment: FetchComments = {
+				id: crypto.randomUUID(),
+				body,
+				userName,
+				createdAt: new Date().toISOString(),
+			}
+
+			setComments(prev => [newComment, ...prev])
+
       setMessage('Comment posted successfully!')
       formRef.current?.reset()
     } catch (err) {
