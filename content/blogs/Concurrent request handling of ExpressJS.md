@@ -1,6 +1,6 @@
 ---
 title: Concurrent request handling of ExpressJS
-description: An in-depth details of ExpressJS uses NodeJS environment to handle concurrent requests.
+description: An in-depth details of how ExpressJS uses NodeJS environment to handle concurrent requests.
 date: 2026-02-05
 ---
 
