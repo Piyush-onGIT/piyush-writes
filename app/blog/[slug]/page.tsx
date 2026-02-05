@@ -1,10 +1,14 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getPostBySlug, markdownToHtml } from "@/lib/posts";
+import { getPostBySlug, markdownToHtml, getAllPosts } from "@/lib/posts";
 import { ProfileCard } from "@/components/ProfileCard";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
