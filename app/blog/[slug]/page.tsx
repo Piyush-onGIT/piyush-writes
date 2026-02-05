@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getPostBySlug, markdownToHtml, getAllPosts } from "@/lib/posts";
 import { ProfileCard } from "@/components/ProfileCard";
+import { CommentSection } from "@/components/CommentSection";
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
@@ -57,6 +58,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 prose-blockquote:border-l-accent prose-blockquote:bg-accent/5 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-xl"
               dangerouslySetInnerHTML={{ __html: html }}
             />
+
+            <CommentSection slug={slug} />
           </div>
         </main>
 
