@@ -6,7 +6,9 @@ date: 2026-02-07
 
 In this article, you will learn about how OpenAI scaled their Postgres database cluster using only one primary instance and multiple read-replicas. First, please take a close look at this simple architecture. Then you will understand each and every components in it as you read further.
 
+<!-- used mermaid.ai -->
 ![DB DESIGN](/images/postgresql-scaling/db_design.png)
+<!-- ![DB DESIGN2](/images/postgresql-scaling/db_diagram_2.png) -->
 
 ### The Basic Idea
 
