@@ -15,7 +15,7 @@ export const dynamicParams = false;
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  console.log(slug);
+
   const post = await getPostBySlug(slug).catch(() => null);
   if (!post) {
     return notFound();

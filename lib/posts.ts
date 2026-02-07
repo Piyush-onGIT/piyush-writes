@@ -95,9 +95,9 @@ export async function markdownToHtml(markdown: string): Promise<string> {
   const result = await unified()
     .use(remarkParse)
     .use(remarkRehype)
+    .use(rehypeMermaidBlocks)
     .use(rehypeHighlight)
     .use(rehypeStringify)
-    .use(rehypeMermaidBlocks)
     .process(markdown);
   return result.toString();
 }

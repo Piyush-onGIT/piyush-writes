@@ -53,6 +53,7 @@ graph LR
     svcA <-- Reads+Writes Txns --> primary
     svcB <-- Reads+Writes Txns --> primary
 ```
+
 ```mermaid
 graph LR
     %% Sharded write-heavy workloads
@@ -173,7 +174,7 @@ Postgres connections are stateful. Each connection carries **session state**, in
 - Locks
 - Isolation levels
 - Temporary settings
-- 
+
 Services handle requests concurrently, and if concurrent requests use a single global DB connection, they will interfere with each other.
 
 If all requests share one connection:

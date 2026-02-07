@@ -2,7 +2,6 @@
   "name": "blog",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "homepage": "https://piyush-ongit.github.io/piyush-writes",
   "scripts": {
     "dev": "next dev",
