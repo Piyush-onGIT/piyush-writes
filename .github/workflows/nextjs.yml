@@ -30,6 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_API_BASE_URL: https://piyush-writes-backend.vercel.app
+      NODE_ENV: production
     steps:
       - name: Checkout
         uses: actions/checkout@v4
