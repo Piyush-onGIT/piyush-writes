@@ -6,60 +6,7 @@ date: 2026-02-07
 
 In this article, you will learn about how OpenAI scaled their Postgres database cluster using only one primary instance and multiple read-replicas. First, please take a close look at this simple architecture. Then you will understand each and every components in it as you read further.
 
-```mermaid
-graph LR
-    %% Primary
-    primary["Primary Instance"]
-
-    %% Read replicas
-    rr1["Read Replica"]
-    rr2["Read Replica"]
-    rr3["Read Replica"]
-
-    %% WAL replication
-    primary -- WAL --> rr1
-    primary -- WAL --> rr2
-    primary -- WAL --> rr3
-
-    %% PgBouncer layer
-    pgb1["PgBouncer"]
-    pgb2["PgBouncer"]
-    pgb3["PgBouncer"]
-
-    rr1 --> pgb1
-    rr2 --> pgb2
-    rr3 --> pgb3
-
-    %% Cache services
-    cache1["Cache Service"]
-    cache2["Cache Service"]
-    cache3["Cache Service"]
-
-    %% Services column (shared)
-    svcA["SVC A"]
-    svcB["SVC B"]
-    svcC["SVC C"]
-
-    cache1 <-- Reads --> svcA
-    pgb1 <-- Cache miss --> svcA
-	
-    cache2 <-- Too many reads --> svcB
-    pgb2 <-- Cache miss --> svcB
-
-    cache3 <-- Reads --> svcC
-    pgb3 <-- Cache miss --> svcC
-
-    %% Writes + reads to primary
-    svcA <-- Reads+Writes Txns --> primary
-    svcB <-- Reads+Writes Txns --> primary
-```
-
-```mermaid
-graph LR
-    %% Sharded write-heavy workloads
-    cosmos["Azure Cosmos DB"]
-    svcN <-- Shardable write-heavy workloads --> cosmos
-```
+![DB DESIGN](/images/postgresql-scaling/db_design.png)
 
 ### The Basic Idea
 

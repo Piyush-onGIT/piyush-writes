@@ -5,7 +5,6 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeHighlight from "rehype-highlight";
 import rehypeStringify from "rehype-stringify";
-import { rehypeMermaidBlocks } from "@/utils/mermaidConverter";
 
 export type PostMeta = {
   slug: string;
@@ -95,7 +94,6 @@ export async function markdownToHtml(markdown: string): Promise<string> {
   const result = await unified()
     .use(remarkParse)
     .use(remarkRehype)
-    .use(rehypeMermaidBlocks)
     .use(rehypeHighlight)
     .use(rehypeStringify)
     .process(markdown);

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Sora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import MermaidInit from "@/components/MermaidInit";
 
 const sora = Sora({
   variable: "--font-sans",
@@ -27,7 +26,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <MermaidInit />
       <body className={`${sora.variable} ${jetbrains.variable} antialiased`}>
         <div className="bg-gradient">
           <div className="bg-grid">{children}</div>
