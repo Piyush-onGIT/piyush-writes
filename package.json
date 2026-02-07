@@ -2,6 +2,7 @@
   "name": "blog",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "homepage": "https://piyush-ongit.github.io/piyush-writes",
   "scripts": {
     "dev": "next dev",
@@ -13,7 +14,9 @@
     "@tailwindcss/typography": "^0.5.19",
     "axios": "^1.13.4",
     "lucide-react": "^0.563.0",
+    "mermaid": "^11.12.2",
     "next": "16.1.6",
+    "playwright": "^1.58.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "rehype-highlight": "^7.0.2",
