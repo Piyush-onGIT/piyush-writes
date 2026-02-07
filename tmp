@@ -1,0 +1,77 @@
+diff --git a/app/blog/[slug]/page.tsx b/app/blog/[slug]/page.tsx
+index fc32f45..ae66de3 100644
+--- a/app/blog/[slug]/page.tsx
++++ b/app/blog/[slug]/page.tsx
+@@ -3,6 +3,7 @@ import Link from "next/link";
+ import { getPostBySlug, markdownToHtml, getAllPosts } from "@/lib/posts";
+ import { ProfileCard } from "@/components/ProfileCard";
+ import { CommentSection } from "@/components/CommentSection";
++import { MermaidRefresh } from "@/components/MermaidRefresh";
+ 
+ export async function generateStaticParams() {
+   const posts = await getAllPosts();
+@@ -60,6 +61,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
+             />
+ 
+             <CommentSection slug={slug} />
++            <MermaidRefresh />
+           </div>
+         </main>
+ 
+diff --git a/app/layout.tsx b/app/layout.tsx
+index 0beb158..ab1fbb4 100644
+--- a/app/layout.tsx
++++ b/app/layout.tsx
+@@ -1,7 +1,6 @@
+ import type { Metadata } from "next";
+ import { Sora, JetBrains_Mono } from "next/font/google";
+ import "./globals.css";
+-import MermaidInit from "@/components/MermaidInit";
+ 
+ const sora = Sora({
+   variable: "--font-sans",
+@@ -27,7 +26,6 @@ export default function RootLayout({
+ }>) {
+   return (
+     <html lang="en">
+-      <MermaidInit />
+       <body className={`${sora.variable} ${jetbrains.variable} antialiased`}>
+         <div className="bg-gradient">
+           <div className="bg-grid">{children}</div>
+diff --git a/components/MermaidInit.tsx b/components/MermaidInit.tsx
+deleted file mode 100644
+index e4b892b..0000000
+--- a/components/MermaidInit.tsx
++++ /dev/null
+@@ -1,31 +0,0 @@
+-'use client';
+-
+-import { useEffect } from 'react';
+-import { usePathname } from 'next/navigation';
+-import mermaid from 'mermaid';
+-
+-export default function MermaidInit() {
+-  const pathname = usePathname();
+-
+-  useEffect(() => {
+-    // Initialize mermaid configuration
+-    mermaid.initialize({
+-      startOnLoad: false,
+-      theme: 'dark',
+-      securityLevel: 'loose', // Allow for more complex diagrams if needed
+-      fontFamily: 'var(--font-sans)', // Use app font if possible
+-    });
+-
+-    // Run mermaid on all elements with class 'mermaid'
+-    // We wrap in a small timeout to ensure the DOM is ready after navigation
+-    const timeoutId = setTimeout(() => {
+-      mermaid.run({
+-        querySelector: '.mermaid',
+-      });
+-    }, 100);
+-
+-    return () => clearTimeout(timeoutId);
+-  }, [pathname]);
+-
+-  return null;
+-}

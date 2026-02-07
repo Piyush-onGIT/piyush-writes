@@ -6,7 +6,9 @@ export function rehypeMermaidBlocks() {
       if (
         node.tagName === 'pre' &&
         node.children?.[0]?.tagName === 'code' &&
-        node.children[0].properties?.className?.includes('language-mermaid')
+        node.children[0].properties?.className?.includes('language-mermaid') &&
+        parent &&
+        typeof index === 'number'
       ) {
         parent.children[index] = {
           type: 'element',
