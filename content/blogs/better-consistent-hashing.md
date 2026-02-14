@@ -28,7 +28,7 @@ Example: Suppose we have 3 physical servers, `A`, `B`, and `C`. Now we need to p
 
 ![ring-with-vnodes](/piyush-writes/images/better-consistent-hashing/ring-vnodes.jpeg)
 
-In the above figure, you see `A1`, `B1`, `C1`, and so on. These are nothing but the physical servers `A`, `B`, and `C`, but placed at multiple points on the ring. `A1`, `A2`, `A3` are the virtual nodes of physical node `A`. The same applies to `B` and `C`.
+In the above figure, you see `A1`, `B1`, `C1`, and so on. These are nothing but the physical servers `A`, `B`, and `C`, but placed at multiple points on the ring. `A1`, `A2`, `A3` are the virtual nodes of physical node `A`. The same applies to `B` and `C`. For example, when a request comes at `A1` or `A2` or `A3`, it will always be redirected to the respective physical node, that is `A`.
 
 The advantages of using virtual nodes are:
 
