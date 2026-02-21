@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { ReactNode } from "react";
-import { Github, Linkedin, Twitter, Mail, X, TwitterIcon } from "lucide-react";import me from "@/public/me.jpeg";
+import { Github, Linkedin, Twitter, Mail, X, TwitterIcon } from "lucide-react";
+import me from "@/public/me.jpeg";
+
 type Props = {
   children?: ReactNode;
 };
