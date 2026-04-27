@@ -9,7 +9,7 @@ I was implementing a Key-Value database and I was naive enough to choose a HashM
 To answer the question that this blog's title asks, you need to know the internal implementation details of an unordered_map in C++.
 
 ## unordered_map
-```bash
+```text
 [0] -> [key | val] -> [key | val] -> [key | val]
 [1] -> [key | val] -> [key | val]
 [2] -> nullptr
@@ -18,7 +18,7 @@ To answer the question that this blog's title asks, you need to know the interna
 [N-1] -> [key | val] -> [key | val] -> [key | val]
 ```
 An unordered map is a collection of buckets and these buckets store a linked list of nodes, and each node contains your key and sometimes value (if you are storing value inside the node). Let me give you an example of insertion of a {key, val} pair to give you a clear idea.
-```bash
+```text
 insert("name", "piyush");
 -> Compute hash: h = hash("name")
 -> Get bucket index: index = h % N, say index = 2
@@ -28,7 +28,7 @@ insert("name", "piyush");
 ```
 This method is known as **Separate Chaining**. When the hash function returns the same hash for different keys, it's called a collision. In such cases, we just keep inserting the node in the chain of that bucket. Example:
 
-```bash
+```text
 insert("fruit", "apple");
 -> Compute hash: h = hash("fruit")
 -> Get bucket index: index = h % N, index = 2 (collision with the key "name")
@@ -59,7 +59,7 @@ If many keys land in the same bucket, the hashmap ends up with a very long chain
 
 ##### No ordering
 A hashmap doesn't store keys in a sorted order, so it doesn't perform well for range queries. Example:
-```
+```text
 Operation: get values of keys ranging from "c" to "k".
 You have to iterate through all the keys in the map and select the required values.
 ```
