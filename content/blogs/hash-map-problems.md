@@ -1,5 +1,5 @@
 ---
-title: Why you should not use a Hashmap as your Key-Value Database Storage?
+title: Why You Should Not Use a Hash Map for Key-Value Database Storage?
 description: This blog explains why Hashmaps fail under load and why they’re not ideal for storage engines.
 date: 2026-04-28
 ---
