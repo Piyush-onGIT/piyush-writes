@@ -67,3 +67,6 @@ You have to iterate through all the keys in the map and select the required valu
 To search for a key, the hashmap hashes the key and finds the bucket index first. Then it traverses through the chain of nodes to find the key. These nodes can be sitting anywhere in the memory, so the CPU has to access the memory randomly, not sequentially, and CPU doesn't prefer that. Different nodes might be in different cache lines, hence the CPU experiences more cache misses and has to fetch cache lines to search for a key. So the lookup of a key which was supposed to be `O(1)`, turns into `O(cache misses)`.
 
 So, this is all for this blog, but stay tuned for the next one, because in the next blog, I will explain the data structure which solves the above problems and is used by one of the famous open source DBs, LevelDB. Till then the comment section is open for you to guess the name of that data structure.
+
+
+\- Piyush
